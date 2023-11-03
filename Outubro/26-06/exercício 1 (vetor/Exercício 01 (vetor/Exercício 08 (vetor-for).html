@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 08</title>
+</head>
+<body>
+    Coloque o nome do aluno para cadastro: <br>
+    <input id="entrada_Aluno"><br><br>
+
+    <button onclick="cadastrarAluno()">
+        Cadastrar
+    </button>
+
+    <div id="mostrarAlunos">
+    </div>
+
+</body>
+</html>
+
+
+<script>
+    var listaAluno = [];
+    var posicao = 0;
+    function cadastrarAluno() {
+        var Aluno = entrada_Aluno.value;
+        var cont = 1
+        listaAluno.push(Aluno);
+            for (posicao = 0; posicao < listaAluno.length; posicao += 1); {
+            mostrarAlunos.innerHTML += `${listaAluno[listaAluno.length-cont]}<br>`
+        } 
+    }
+</script>
+
+
+<!-- 8. Crie um programa o qual: 
+
+a) O usuário cadastre nomes de alunos; 
+
+b) Porém, na medida que vai cadastrando, aparecem um abaixo do outro na ordem inversa em que foram cadastrados (ou seja, o último sempre fica no topo, o penúltimo em abaixo dele e assim por diante).  -->

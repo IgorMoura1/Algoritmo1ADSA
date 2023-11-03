@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    insira aqui a quantidade de garrafas d'agua: <br>
+    <input id="agua_engarrafada"> <br><br>
+    insira aqui a quantidade de coco fechado: <br>
+    <input id="agua_coco"> <br><br>
+    <button onclick="fazerCalculo()">
+        Abrir o quiosque
+    </button>
+    <div id="mostrarFrase">
+    </div>
+    <div id="estoque">
+    </div>
+    <div id="venda">
+    </div>
+</body>
+
+</html>
+
+<script>
+    function fazerCalculo() {
+        var aguaEngarrafada = Number(agua_engarrafada.value);
+        var aguaCoco = Number(agua_coco.value);
+
+        if (aguaEngarrafada < 100 || aguaCoco < 200) {
+            if (aguaEngarrafada < 100) {
+                mostrarFrase.innerHTML = `Com essa quantidade de água engarrafada não dá para abrir o quiosque<br>`
+            } else mostrarFrase.innerHTML = `Com essa quantidade de Coco fechado não dá para abrir o quiosque<br>`
+        } else {
+            if (aguaEngarrafada >= 100 && aguaEngarrafada <= 1000) {
+                mostrarFrase.innerHTML += `<br>Engarrafe mais água de coco <br>`
+            } if (aguaCoco >= 200 && aguaCoco <= 2000) {
+                mostrarFrase.innerHTML += `Compre mais cocos <br><br>`
+            }
+            estoque.innerHTML = `
+            ---------------------------------ESTOQUE INICIAL----------------------------------- <br> <br>
+            Agua engarrafada: ${aguaEngarrafada} <br>
+            Coco fechado: ${aguaCoco} <br> <br>
+            
+            <button onclick="realizarVenda()">
+            Registrar a venda
+            </button>`
+        } function realizarVenda() {
+
+        }
+    }
+</script>

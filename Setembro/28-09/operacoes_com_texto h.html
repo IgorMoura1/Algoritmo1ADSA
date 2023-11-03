@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<!-- <style>
+    input {
+      text-transform: uppercase;
+    }
+  </style> -->
+
+<body>
+  <h1>Operações com Textos</h1>
+  Digite uma frase:
+  <input id="input_frase" />
+  <button onclick="analisarTextos()">Analisar</button>
+  <br />
+
+  Quantidade de caracteres:
+  <b>
+    <span id="span_qtd_letras"></span>
+  </b>
+  <br />
+
+  Começa com "a"?
+  <b>
+    <span id="span_comeca_a"></span>
+  </b>
+  <br />
+
+  Começa com "e"?
+  <b>
+    <span id="span_comeca_e"></span>
+  </b>
+  <br />
+
+  Termina com ".com"?
+  <b>
+    <span id="span_termina_com"></span>
+  </b>
+  <br />
+
+  Termina com "e"?
+  <b>
+    <span id="span_termina_e"></span>
+  </b>
+  <br />
+
+  Termina com "@"?
+  <b>
+    <span id="span_termina_arroba"></span>
+  </b>
+  <br />
+
+  Primeira letra da frase:
+  <b>
+    <span id="span_primeira_letra"></span>
+  </b>
+  <br />
+
+  Terceira letra da frase:
+  <b>
+    <span id="span_terceira_letra"></span>
+  </b>
+  <br />
+
+  Última letra da frase:
+  <b>
+    <span id="span_ultima_letra"></span>
+  </b>
+  <br />
+
+  Onde está o primeiro @?
+  <b>
+    <span id="span_primeira_arroba"> </span>
+  </b>
+  <br />
+
+  Índice de "abc":
+  <b>
+    <span id="span_indice_abc"></span>
+  </b>
+  <br />
+
+  Como fica em maiúsculo (CAIXA ALTA):
+  <b>
+    <span id="span_maiusculo"></span>
+  </b>
+  <br />
+
+  Como fica em minúsculo (caixa baixa):
+  <b>
+    <span id="span_minusculo"></span>
+  </b>
+  <br />
+
+  Frase original:
+  <b>
+    <span id="span_frase_original"></span>
+  </b>
+  <br />
+
+  Frase com @ no primeiro 'a':
+  <b>
+    <span id="span_arroba_no_a"></span>
+  </b>
+  <br />
+
+  Frase sem espaços:
+  <b>
+    <span id="span_sem_espacos"></span>
+  </b>
+  <br />
+
+  Frase com 4, 5 e 3:
+  <b>
+    <span id="span_numeros"></span>
+  </b>
+</body>
+
+</html>
+
+<script>
+  function analisarTextos() {
+    var frase = input_frase.value;
+
+    span_qtd_letras.innerHTML = frase.length // comprimento do texto
+
+    if (frase.startsWith("a") == true) {
+      span_comeca_a.innerHTML = 'Sim'
+    } else {
+      span_comeca_a.innerHTML = 'Não'
+    }
+
+    if (frase.startsWith("e") == true) {
+      span_comeca_e.innerHTML = 'Sim'
+    } else {
+      span_comeca_e.innerHTML = 'Não'
+    }
+
+    if (frase.endsWith(".com") == true) {
+      span_termina_com.innerHTML = 'Sim'
+    } else {
+      span_termina_com.innerHTML = 'Não'
+    }
+
+    if (frase.endsWith("e") == true) {
+      span_termina_e.innerHTML = 'Sim'
+    } else {
+      span_termina_e.innerHTML = 'Não'
+    }
+
+    if (frase.endsWith("@") == true) {
+      span_termina_arroba.innerHTML = 'Sim'
+    } else {
+      span_termina_arroba.innerHTML = 'Não'
+    }
+
+    span_primeira_letra.innerHTML = frase[0]  // pega o caracter // 0 começa // só para texto
+
+    span_terceira_letra.innerHTML = frase[2]
+
+    span_ultima_letra.innerHTML = frase[frase.length - 1]
+
+    span_primeira_arroba.innerHTML = frase.indexOf('@') // qual posição o @ ta no texto // index = índice
+
+    // if (frase.indexOf('@') < 0) { // se não estiver no if aparece -1
+    //   alert('E-mail inválido')
+    // }
+
+    // if (frase.indexOf("@") > -1) {
+    //   if (frase.indexOf("sptech") > -1) {
+    //     if (frase.indexOf("sptech") > frase.indexOf("@")) {
+    //       if (frase.indexOf("@sptech") > -1) {
+    //         alert('E-mail tem domínio @sptech')
+    //       } else {
+    //         alert('sptech não vem após o @')
+    //       }
+    //     } else {
+    //       alert('@ aparece após sptech')
+    //     }
+    //   } else {
+    //     alert('Não tem sptech')
+    //   }
+    // } else {
+    //   alert('Não tem @')
+    // }
+
+    span_indice_abc.innerHTML = 
+
+    span_minusculo.innerHTML = frase.toLowerCase()
+
+    span_maiusculo.innerHTML = frase.toUpperCase()
+
+    span_frase_original.innerHTML = frase
+
+    span_arroba_no_a.innerHTML = frase.replace("a", "@")
+
+    span_sem_espacos.innerHTML = frase.replaceAll(" ", "")
+
+    span_numeros.innerHTML = frase.replaceAll("a","4").replaceAll("s","5").replaceAll("e","3")
+
+  } 
+</script>

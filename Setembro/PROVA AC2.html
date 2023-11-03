@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROVA AC2</title>
+</head>
+
+<body>
+    <h1>OLÁ JOVEM NINJA! VAMOS VER O QUÃO ESTÁ PREPARADO <br><br></h1>
+
+    Insira aqui quantidade de pontos de “Chakra” que o Naruto tem: <br>
+    <input id="qtdChakara"> <br> <br>
+    Insira aqui a quantidade de clones desejada: <br>
+    <input id="qtdClones"> <br> <br>
+    Insira a quantidade de clones por linha <br>
+    <input id="clonesLinha"> <br><br>
+
+    <button onclick="mostrarClones()">
+        Criar clones
+    </button> <br><br>
+
+    <div id="mostrar">
+
+    </div>
+</body>
+<style width="20px" height="30px"></style>
+
+</html>
+
+<!-- 1 clone = 20chakra -->
+
+<script>
+    function mostrarClones() {
+        var chakara = Number(qtdChakara.value);
+        var clones = Number(qtdClones.value);
+        var linhaClones = Number(clonesLinha.value);
+        var numero = 0;
+        var repeticao = 0;
+        mostrar.innerHTML = ``
+
+        if (chakara >= 20 && chakara <= 5000 && clones >= 0 && clones <= 250 && linhaClones >= 0) {
+            if (chakara >= (clones * 20)) {
+                while (numero < clones) {
+                    linhaClones = Number(clonesLinha.value);
+                    mostrar.innerHTML += `<img src="NARUTO.png" width="100px" height="170px">`
+                    while (linhaClones > 0) {
+                        mostrar.innerHTML += `<br>`
+                        linhaClones -= 1
+                    }
+                    numero += 1
+                    
+                }
+            } else alert(`Não foi possível a criação de clones desejada! O número de chakara é baixo demais para a quantidade de clones, insira um valor de chakra que seja 20 maior que a quantidade de clone (cada clone usa 20 de chakra).`)
+        } else alert(`ERRO NA ENTRADA DE DADOS – Energia tem que ser entre 20 e 5.000. Quantidade de Clones tem que ser entre 0 e 250. Quantidade de Clones por linha tem que ser maior que 0.`)
+    }
+
+
+
+</script>

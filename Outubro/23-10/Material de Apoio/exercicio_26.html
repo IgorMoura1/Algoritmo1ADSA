@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Informe o número máximo:
+    <input id="input_numero_maximo" /><br />
+    <button onclick="somarPares()">Somar Pares</button>
+    <div id="div_resultado"></div>
+  </body>
+</html>
+<script>
+  function somarPares() {
+    var numeroMaximo = Number(input_numero_maximo.value);
+
+    if (numeroMaximo < 10 || numeroMaximo > 500) {
+      alert("Número fora do intervalo correto !");
+    } else {
+      div_resultado.innerHTML = "";
+      var somatoria = 0;
+
+      for (var numeroAtual = 1; numeroAtual < numeroMaximo; numeroAtual += 1) {
+        if (numeroAtual % 2 == 0) {
+          somatoria += numeroAtual;
+          div_resultado.innerHTML += `${numeroAtual}<br>`;
+        }
+      }
+      div_resultado.innerHTML += `
+      Soma dos pares: ${somatoria}
+      `;
+    }
+  }
+</script>

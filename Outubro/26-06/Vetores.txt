@@ -1,0 +1,9 @@
+Vetores eles vão ser necessários para uma estrutura que armazena várias informaçoes no mesmo local.
+
+Vetor = associado a lista de algo.
+
+Posição do vetor pode ser associada ao laço de repetição.
+
+var itemDaLista = 0;
+listaSupermercado[itemDaLista]
+= Maçã

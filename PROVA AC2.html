@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROVA AC2</title>
+</head>
+<body>
+    <h1>OLÁ JOVEM NINJA! <br> VAMOS VER O QUÃO ESTÁ PREPARADO <br><br></h1>
+    Insira aqui quantidade de pontos de “Chakra” que o Naruto tem: <br>
+    <input id="qtdchakra"> <br> <br>
+    Insira aqui a quantidade de clones desejada: <br>
+    <input id="qtdClones"> <br> <br>
+    Insira a quantidade de clones por linha <br>
+    <input id="clonesLinha"> <br><br>
+    <button onclick="mostrarClones()">
+        Criar clones
+    </button> <br><br>
+    <div id="mostrar">
+    </div>
+    <div id="mostrarCalculo">
+    </div>
+</body>
+<style width="20px" height="30px"></style>
+</html>
+<script>
+    function mostrarClones() {
+        var chakra = Number(qtdchakra.value);
+        var clones = Number(qtdClones.value);
+        var linhaClones = Number(clonesLinha.value);
+        var numero = 0;
+        var repeticao = 0;
+        var sobraChakra = chakra - clones * 20
+        var percentual = sobraChakra / chakra * 100
+        mostrar.innerHTML = ``
+        mostrarCalculo.innerHTML = ``
+        if (chakra >= 20 && chakra <= 5000 && clones >= 0 && clones <= 250 && linhaClones > 0) {
+            if (chakra >= (clones * 20)) {
+                while (numero < clones) {
+                    if (linhaClones == repeticao) {
+                        repeticao = 0;
+                        mostrar.innerHTML += `<br>`
+                    }
+                    if (linhaClones !== repeticao) {
+                        mostrar.innerHTML += `<img src="NARUTO.png" width="100px" height="170px">`
+                    }
+                    repeticao += 1
+                    numero += 1
+                } mostrarCalculo.innerHTML = `ANÁLISE DA GERAÇÃO DE CLONES: <br> Chakra Inicial ${chakra} <br> Quantidade de Clones: ${clones} <br> Sobra de Chakra: ${chakra - clones * 20} <br>`
+                if (sobraChakra > 1000 || clones > 50 && percentual >= 20) {
+                    mostrarCalculo.innerHTML += `PROVAVELMENTE VOCÊ VAI GANHAR`
+                } else if (sobraChakra > 500 || clones >= 20 && clones <= 50 && percentual >= 10) {
+                    mostrarCalculo.innerHTML += `A LUTA VAI SER MUITO BOA!`
+                } else { mostrarCalculo.innerHTML += `TORÇA PARA O ADVERSÁRIO SER FRAQUINHO` }
+            } else alert(`Não foi possível a criação de clones desejada! O número de chakra é baixo demais para a quantidade de clones, insira um valor de chakra que seja 20 maior que a quantidade de clone (cada clone usa 20 de chakra).`)
+        } else alert(`ERRO NA ENTRADA DE DADOS – Energia tem que ser entre 20 e 5.000. Quantidade de Clones tem que ser entre 0 e 250. Quantidade de Clones por linha tem que ser maior que 0.`)
+    }
+</script>
